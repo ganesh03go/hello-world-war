@@ -21,17 +21,10 @@ pipeline {
             }
         }
         stage('Deploy Stage') {
-            steps {
-                sshagent(['tomcat-id']) {
-                    sh 'pwd'
-                    dir('target') {
-                        sh 'ls -lrt'
-              		    sh 'mv hello-world-war-1.0.0.war hello-world-war-1.0.0-${BUILD_NUMBER}.war'
-              		    sh 'scp -o StrictHostKeyChecking=no hello-world-war-1.0.0-${BUILD_NUMBER}.war ubuntu@172.31.32.178:/opt/tomcat/webapps'
+            steps { 
+                echo "this is a deploy stage"
                     }
-                    
                 }
-            }
-        }
+         
     }
 }
