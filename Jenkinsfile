@@ -13,7 +13,7 @@ pipeline {
         stage('Build Stage') {
             steps {
                 sh 'mvn clean install'
-                echo "build number is: $(env.BUILD_NUMBER)"
+                echo "build number is: ${env.BUILD_NUMBER}"
             }
         }
         stage('Test Stage') {
