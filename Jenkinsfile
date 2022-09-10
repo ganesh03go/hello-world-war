@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout src') {
             steps {
                 echo 'Java-Maven-war-project '
-                echo "Branch_Name: ${env.GIT_BRANCH}" 
+                echo "git committer name: ${env.GIT_COMMITTER_NAME}" 
                 git 'https://github.com/rranjith406/hello-world-war.git'
                 sh 'ls -lrt'
             }
