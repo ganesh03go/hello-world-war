@@ -14,6 +14,7 @@ pipeline {
             steps {
                 sh 'mvn clean install'
                 echo "build number is: ${env.BUILD_NUMBER}"
+                echo "Build url is: ${env.BUILD_URL}"
             }
         }
         stage('Test Stage') {
