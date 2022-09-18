@@ -27,6 +27,13 @@ pipeline {
                 echo "this is a deploy stage"
                     }
                 }
-         
+         stage("SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('SonarQube-8.9.1') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+        }
     }
 }
