@@ -23,12 +23,17 @@ pipeline {
             }
         }
         stage('Deploy Stage') {
+            when { 
+                branch 'master'
+            }
             steps { 
                 echo "this is a deploy stage"
                     }
                 }
          stage("SonarQube analysis") {
-            agent any
+             when {
+                 branch 'master'
+             }
             steps {
               withSonarQubeEnv('SonarQube-8.9.1') {
                 sh 'mvn clean package sonar:sonar'
